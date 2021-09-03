@@ -14,7 +14,10 @@ async def sum(ctx, numOne: int, numTwo: int):
     await ctx.send(numOne + numTwo)
 @bot.command()
 async def tts(ctx, *, ttsword):
-    os.remove("output.mp3")
+    try:
+        os.remove("output.mp3")
+    exept:
+        language = 'de'
     language = 'de'
     output = gTTS(text=ttsword, lang=language, slow=False)
     output.save("output.mp3")
